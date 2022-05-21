@@ -1,7 +1,7 @@
 # MLOps Zoomcamp
 
 <p align="center">
-  <a href="https://datatalks.club" target="_blank">
+  <a href="https://www.youtube.com/watch?v=3T5kUA3eWWc&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK" target="_blank">
     <img src="images/banner.png">
   </a>
 </p>
@@ -184,7 +184,17 @@ No and yes. There will be two parts:
 * Office hours: Live on Mondays (17:00 CET), but recorded, so you can watch later.
 
 
-## Partners
+## Supporters and partners
+
+Thanks to the course sponsors for making it possible to create this course
+
+<p align="center">
+  <a href="https://www.prefect.io/">
+    <img height="100" src="images/prefect.png">
+  </a>
+</p>
+
+
 
 Thanks to our friends for spreading the word about the course
 
@@ -194,5 +204,11 @@ Thanks to our friends for spreading the word about the course
   </a>
   <a href="https://www.confetti.ai/">
     <img height="75" src="https://datatalks.club/images/partners/confetti.png">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://mlopsworld.com/">
+    <img height="75" src="images/mlops-world.png">
   </a>
 </p>
