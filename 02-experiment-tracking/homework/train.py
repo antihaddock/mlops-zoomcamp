@@ -1,6 +1,8 @@
 import argparse
 import os
 import pickle
+# Ryan add
+import mlflow
 
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
@@ -15,12 +17,20 @@ def run(data_path):
 
     X_train, y_train = load_pickle(os.path.join(data_path, "train.pkl"))
     X_valid, y_valid = load_pickle(os.path.join(data_path, "valid.pkl"))
+    
+    # Code modification here
+    mlflow.set_tracking_uri("sqlite:///mlflow.db")
+    mlflow.set_experiment("nyc-taxi-experiment_homework")
 
-    rf = RandomForestRegressor(max_depth=10, random_state=0)
-    rf.fit(X_train, y_train)
-    y_pred = rf.predict(X_valid)
 
-    rmse = mean_squared_error(y_valid, y_pred, squared=False)
+    mlflow.sklearn.autolog()
+    with mlflow.start_run():
+        # existing code block from here
+        rf = RandomForestRegressor(max_depth=10, random_state=0)
+        rf.fit(X_train, y_train)
+        y_pred = rf.predict(X_valid)
+
+        rmse = mean_squared_error(y_valid, y_pred, squared=False)
 
 
 if __name__ == '__main__':
