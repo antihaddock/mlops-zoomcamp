@@ -28,7 +28,7 @@ Like in the course videos, we want to prepare the dataframe with the output.
 First, let's create an artificial `ride_id` column:
 
 ```python
-df['ride_id'] = '{year:04d}/{month:02d}_' + df.index.astype('str')
+df['ride_id'] = f'{year:04d}/{month:02d}_' + df.index.astype('str')
 ```
 
 Next, write the ride id and the predictions to a dataframe with results. 
@@ -64,14 +64,13 @@ Which command you need to execute for that?
 
 ## Q4. Virtual environment
 
-Now let's put everything into a virtual environment. We'll use
-pipenv for that.
+Now let's put everything into a virtual environment. We'll use pipenv for that.
 
-Install all the required libraries. Pay attention to the sklearn version. Check the notebook and use the same Scikit-Learn
-that we used for creating the pickle files. 
+Install all the required libraries. Pay attention to the Scikit-Learn version:
+check the starter notebook for details. 
 
 After installing the libraries, pipenv creates two files: `Pipfile`
-and `Pipfile.lock`. The `Pipfile.lock` keeps the hashes of the
+and `Pipfile.lock`. The `Pipfile.lock` file keeps the hashes of the
 dependencies we use for the virtual env.
 
 What's the first hash for the Scikit-Learn dependency?
@@ -108,7 +107,7 @@ WORKDIR /app
 COPY [ "model2.bin", "model.bin" ]
 ```
 
-(see [`homehork/Dockerfile`](homehork/Dockerfile))
+(see [`homework/Dockerfile`](homework/Dockerfile))
 
 We pushed it to [`agrigorev/zoomcamp-model:mlops-3.9.7-slim`](https://hub.docker.com/layers/zoomcamp-model/agrigorev/zoomcamp-model/mlops-3.9.7-slim/images/sha256-7fac33c783cc6018356ce16a4b408f6c977b55a4df52bdb6c4d0215edf83af5d?context=explore),
 which you should use as your base image.
@@ -116,7 +115,7 @@ which you should use as your base image.
 That is, this is how your Dockerfile should start:
 
 ```docker
-FROM grigorev/zoomcamp-model:mlops-3.9.7-slim
+FROM agrigorev/zoomcamp-model:mlops-3.9.7-slim
 
 # do stuff here
 ```
