@@ -4,24 +4,25 @@ from prefect import flow
 def myflow():
     print("hello")
 
-from prefect.deployments import DeploymentSpec
+from prefect.deployments import Deployment
 from prefect.orion.schemas.schedules import IntervalSchedule
-from prefect.flow_runners import SubprocessFlowRunner
 from datetime import timedelta
 
-DeploymentSpec(
+deployment_dev = Deployment.build_from_flow(
     flow=myflow,
     name="model_training-dev",
     schedule=IntervalSchedule(interval=timedelta(minutes=5)),
-    flow_runner=SubprocessFlowRunner(),
-    tags=["dev"]
+    work_queue_name="dev"
 )
 
-DeploymentSpec(
+deployment_dev.apply()
+
+deployment_prod = Deployment.build_from_flow(
     flow=myflow,
     name="model_training-prod",
     schedule=IntervalSchedule(interval=timedelta(minutes=5)),
-    flow_runner=SubprocessFlowRunner(),
-    tags=["prod"]
+    work_queue_name="prod"
 )
+
+deployment_prod.apply()
 
