@@ -1,4 +1,5 @@
 data/
+Data/
 .ipynb_checkpoints
 .bin
 *.db
